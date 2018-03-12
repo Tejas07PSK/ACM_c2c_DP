@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Bootstrap Test Page</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"> 
+        <meta charset="UTF-8">
+        <meta name="description" content="First Bootstrap Page">
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap-grid.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap-reboot.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/Startpage.css"/>
+        <script type="text/javascript" src="/static/bootstrap.bundle.js"></script>
+        <script type="text/javascript" src="/static/bootstrap.js"></script>
+        <script type="text/javascript" src="/static/popper.js"></script>
+        <script type="text/javascript" src="/static/tooltip.js"></script>
+        <script type="text/javascript" src="/static/jquery_lib-3.3.1.js"></script>
+        <script type="text/javascript" src="/static/jqry2.js"></script>
+    </head>
+<body>
+     <div id="mid_cont" class="container-fluid" style="background-image:url(/static/back.jpg)">
+
+         <div class="row" style="padding:-0.8%">
+                 <div class="col-md-4" style="border: 2px solid transparent;"></div>
+                 <div class="col-md-4" style="border: 2px solid transparent;">
+                      <img src="/static/logo.png" alt="Site Logo" height="200" width="300"/>
+                      <h3 id="log_txt">EL Predicto!</h3>
+                 </div>
+                 <div class="col-md-4" style="border: 2px solid transparent;"></div>
+          </div>
+
+        <div class="container" style="display:{% if data %}block{% else %}none{% endif %};border: 2px solid transparent;margin: 5.2%;background-color:{%if col_code == '1' %}green{% else %}red{% endif %};">
+            <span class="text-white" style="margin-left:90%; cursor: pointer;" id="close_res"><b>X</b></span>
+            <p class="text-justify text-white" style="margin-left:42%;">{{data}}</p>
+        </div>
+
+         <div class="row" style="padding:2%;">
+                 <div class="col-md-4" style="border: 2px solid transparent;"></div>
+                 <div class="col-md-4" style="border: 2px solid transparent;">
+                     <form action="/usereg/register/" method="post">
+                      <div class="card" style="border: 1px solid navy;box-shadow: 2px 2px 2px black, 0 0 5px darkslategray;">
+                           <div class="card-header" style="color:yellow;font-family:'Consolas','Monaco';background-color:rgba(71,97,172,0.8);">UserRegistration</div>
+                           <div class="card-body" style="background-color:whitesmoke;">
+                               <br/>
+                                <div class="form-group">
+                                    {% load widget_tweaks %}
+                                    {% csrf_token %}
+                                    {{ form.non_field_errors }}
+
+                                     {{ form.fst_name.errors }}
+                                     <label for="{{ form.fst_name.id_for_label }}"><i>Enter FirstName</i></label>
+                                     {% render_field form.fst_name class+="form-control text-info" %}
+                                     <br/>
+                                     {{ form.lst_name.errors }}
+                                     <label for="{{ form.lst_name.id_for_label }}"><i>Enter LastName</i></label>
+                                     {% render_field form.lst_name class+="form-control text-info" %}
+                                     <br/>
+                                     {{ form.eml.errors }}
+                                     <label for="{{ form.eml.id_for_label }}"><i>Enter Email</i></label>
+                                     {% render_field form.eml class+="form-control text-info" %}
+                                     <br/>
+                                     {{ form.usr_pss.errors }}
+                                     <label for="{{ form.pss.id_for_label }}"><i>Enter Password</i></label>
+                                     {% render_field form.pss class+="form-control text-info" type="password" %}
+                                     <br/>
+                                     <label for="usr_pss_re"><i>Re-Enter Password</i></label>
+                                     <input id="usr_pss_re" type="password" class="form-control text-info" name="pss_chk"/>
+                                     <br/>
+                                </div>
+                           </div>
+                              <div class="card-footer" style="color:yellow;font-family:'Consolas','Monaco';background-color:rgba(71,97,172,0.8);">
+                                  <a class="btn btn-outline-warning btn-sm float-left ml-2" href="/predictor/">Back To App</a>
+                                  <button type="submit" class="btn btn-outline-warning btn-sm float-right mr-2">Submit</button>
+                              </div>
+                 </div>
+                 </form>
+                 <div class="col-md-4" style="border: 2px solid transparent;"></div>
+          </div>
+    </div>
+     
+</body>
+</html>

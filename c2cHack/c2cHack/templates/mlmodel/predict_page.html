@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Bootstrap Test Page</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="description" content="First Bootstrap Page"/>
+        <link rel="stylesheet" type="text/css" href="/static/Startpage.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/tooltip.js"></script>
+        <script type="text/javascript" src="/static/jqry.js"></script>
+        <script type="text/javascript" src="/static/jquery_lib-3.3.1.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+<body>
+      <fieldset id="pg_data" style="display:none;">
+               <input id="is_logged_in" type="hidden" value="1" style="display:none;"/>
+      </fieldset>
+     <div id="upper_cont" class="container-fluid ">
+          <div class="row" style="padding:-0.8%">
+                 <div class="col-md-4" style="border: 2px solid transparent;"></div>
+                 <div class="col-md-4" style="border: 2px solid transparent;">
+                      <img src="/static/logo.png" alt="Site Logo" height="200" width="300"/>
+                      <h3 id="log_txt">EL Predicto!</h3>
+                 </div>
+                 <div class="col-md-4" style="border: 2px solid transparent;"></div>
+          </div>
+    </div>
+     <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+         <span class="navbar-brand pl-5 tgrs" style="background-image:url('/static/pylogo.png')"><a class="text-light" href="/predictor/stack/"><i>Stack</i></a></span>
+         <ul class="navbar-nav">
+             <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-inline-block" id="navbardrop" data-toggle="dropdown" style="cursor:pointer;">User's Corner</a>
+                    <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">LogIn</a>
+                          <a class="dropdown-item" href="/usereg/">Register</a>
+                    </div>
+             </li>
+             <li class="nav-item ml-2">
+                <a class="nav-link" href="#">PBot</a>
+             </li>
+             <li class="nav-item ml-2">
+                <a class="nav-link" href="#">About</a>
+             </li>
+         </ul>
+         <form class="form-inline" style="margin-left: 43%;">
+             <div class="input-group">
+                 <input type="text" class="form-control" placeholder="Start Your Search here....">
+                 <div class="input-group-append">
+                     <span class="input-group-text text-white" style="background-color:darkgreen;">Search</span>
+                 </div>
+             </div>
+         </form>
+     </nav>
+
+     <div class="container-fluid" style="margin:0%;background-color:rgb(129,160,156);border: 2px solid gray;">
+         <br/>
+         <h2 class="text-dark" style="text-align:center;font-family:'Comic Sans MS';">Welcome To EL Predicto!</h2>
+         <br/>
+          <p class="text-white animated bounce infinite" style="text-align:center;font-family:'Monaco';text-shadow: 2px 2px 2px black, 0 0 25px yellow, 2px 2px 5px black;">
+              This our humble web-app that can successfully predict a disease,based on the user's input symptoms.
+              This application was designed to help out people, with the idea of letting them understand what might be
+              wrong with their health.Thank You for visiting our website.
+          </p>
+           <br/>
+          <h5 class="text-dark" style="text-align:center;">Click the <b>'Use Predictor'</b> button below to get started.</h5>
+          <br/>
+     </div>
+     <div id="mid_cont" class="container-fluid" style="background:url('/static/back.jpg');">
+        <div class="row" style="padding:2%;">
+             <div class="col-md-4" style="border: 2px solid transparent;"></div>
+             <div class="col-md-4" style="border: 2px solid transparent;">
+                  <div class="container">
+                      <button type="button" class="btn btn-primary" style="margin-left:30%;margin-top:20%;" data-toggle="collapse" data-target="#coll">Use Predictor</button>
+                      <br/>
+                      <br/>
+                      <div class="collapse" id="coll">
+                          <label for="symps" class="text-white"><b>Enter Symptoms:</b></label>
+                          <textarea class="form-control border border-info" rows="10" id="symps" style="box-shadow: 2px 2px 2px black, 0 0 5px darkslategray;"></textarea>
+                          <br/>
+                          <button type="button" class="btn btn-primary mt-2" id="getres">Get Results</button>
+                          <br/>
+                          <br/>
+                          <span id="predres" class="container d-block p-5" style="border:2px solid black;background: whitesmoke;"></span>
+                      </div>
+                  </div>
+             </div>
+             <div class="col-md-4" style="border: 2px solid transparent;">
+                 <p class="text-warning m-5">Please enter the symptoms with the correct spellings and in new lines seperated by commas.</p>
+                 <ol type="1" class="m-4">
+                     <li class="text-success">Not Very Serious</li>
+                     <li class="text-light">Moderate</li>
+                     <li class="text-danger">Severe</li>
+                 </ol>
+             </div>
+        </div>
+     </div>
+
+</body>
+</html>
